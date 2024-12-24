@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 480px;
+}
+
+.screen {
+    border: solid black;
+    margin: 0;
+    text-align: center;
+}
+
+.buttonContainer {
+    display: flex;
+    margin: 0;
+}
+
+.numberContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3 0 0;
+}
+
+.operatorContainer {
+    display: flex;
+}
+
+.calcButton {
+    border: solid black;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+}
