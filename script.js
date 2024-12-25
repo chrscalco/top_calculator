@@ -1,10 +1,11 @@
 //Arrays and variables for calculator
+
+
 const calcButtons = ["7", "8", "9", "÷", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
 let firstOperand = null;
 let operator = null;
 let secondOperand = null;
 let lastOperation = null;
-//let currentOperation = null;
 
 //Functions to operate and create calculator 
 
@@ -45,6 +46,7 @@ function checkOperator(a, operator , b) {
 };
 
 // On press of number adds it to the screen along with last inputs
+
 
 function updateBotScreen(input, text) {
 
@@ -126,6 +128,7 @@ function createCalc(arr) {
 
 //Calculator dom manipulation and creation
 
+
 const calculator = document.querySelector("#calculator");
 const screen = document.createElement("div");
 const topScreen = document.createElement("div");
@@ -151,6 +154,7 @@ createCalc(calcButtons);
 
 //Forgot the clear button so it will have to go outside the calculator
 
+
 function clear () {
     firstOperand = null;
     operator = null;
@@ -158,7 +162,6 @@ function clear () {
     lastOperation = null;
     textBot.textContent = null;
     textTop.textContent = null;
-    //currentOperation = null;
 }
 
 const bodyDiv = document.querySelector("body");
@@ -168,7 +171,11 @@ const header = document.createElement("header");
 header.textContent = "Forgot to include the clear button and the calc looks crisp. So it stays outside.";
 clearButton.classList.add("clearButton");
 clearButton.textContent = "AC";
-clearButton.addEventListener("click", () => {
+clearButton.addEventListener("mousedown", () => {
+    clearButton.setAttribute("style", "background-color: rgba(128, 0, 128, 0.534)")
+})
+clearButton.addEventListener("mouseup", () => {
+    clearButton.setAttribute("style", "background-color: purple");
     clear();
 });
 
