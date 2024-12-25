@@ -11,8 +11,18 @@ let lastOperation = null;
 
 
 function operate(a,operator,b) {
-    a = parseInt(a);
-    b = parseInt(b);
+
+    let str = "" + a;
+    let str2 = "" + b;
+
+    if (str.includes(".")) {
+        a = parseFloat(a);
+    } else if (str2.includes(".")) {
+        b = parseFloat(b);
+    } else {
+        a = parseInt(a);
+        b = parseInt(b);
+    }
 
     if (a === 0 && b === 0 && operator === "÷") {
         a = null;
@@ -50,15 +60,25 @@ function checkOperator(a, operator , b) {
 
 function updateBotScreen(input, text) {
 
-    if(text.includes(".")) {
-
-    }
-
     if(text.length >= 9) {
         return text.substring(0,9);
     } else {
         text = text + input;
         return text;
+    }
+}
+
+function limitFloat(result) {
+
+    let str = "" + result;
+
+    if (str.includes(".")) {
+        result = result.toFixed(3);
+        result = parseFloat(result);
+        console.log(result);
+        return result;
+    } else {
+        return result;
     }
 }
 
@@ -78,6 +98,7 @@ function createCalc(arr) {
                 button.setAttribute("style", "background-color: #ED6E3E")
                 lastOperation = firstOperand + operator + secondOperand;
                 firstOperand = operate(firstOperand, operator, secondOperand);
+                firstOperand = limitFloat(firstOperand);
                 textBot.textContent = firstOperand;
                 textTop.textContent = lastOperation;
                 operator = null;
