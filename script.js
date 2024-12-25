@@ -1,5 +1,5 @@
 //Arrays for calculator
-calcButtons = ["7", "8", "9", "÷", "4", "5", "6", "x", "1", "2", "3", "-", "0", ".", "=", "+"];
+calcButtons = ["7", "8", "9", "÷", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
 
 
 //Functions to operate calculator
@@ -21,30 +21,33 @@ function operate(a,operator,b) {
 
 const calculator = document.querySelector("#calculator");
 const screen = document.createElement("div");
-const buttons = document.createElement("div");
-const numberContainer = document.createElement("div");
-const operatorContainer = document.createElement("div");
-const tempText = document.createElement("h1");
+const topScreen = document.createElement("div");
+const botScreen = document.createElement("div");
+const buttonContainer = document.createElement("div");
+const tempTextTop = document.createElement("h1");
+const tempTextBot = document.createElement("h1");
 
-tempText.textContent = "7 * 8";
+
+tempTextTop.textContent = "7 * 8";
+tempTextBot.textContent = "5 + 10";
 screen.classList.add("screen");
-buttons.classList.add("buttonContainer");
+topScreen.classList.add("topScreen");
+botScreen.classList.add("botScreen");
+buttonContainer.classList.add("buttonContainer");
 
-numberContainer.classList.add("numberContainer");
-operatorContainer.classList.add("operatorContainer");
-
-screen.appendChild(tempText);
+topScreen.appendChild(tempTextTop)
+botScreen.appendChild(tempTextBot);
+screen.appendChild(topScreen);
+screen.appendChild(botScreen);
 calculator.appendChild(screen);
-buttons.appendChild(numberContainer);
-buttons.appendChild(operatorContainer);
-calculator.appendChild(buttons);
+calculator.appendChild(buttonContainer);
 
 function createCalc(arr) {
     for (i=0; i<arr.length; i++) {
-        const buttonNum = document.createElement("button");
-        buttonNum.textContent = arr[i];
-        buttonNum.classList.add("calcButton");
-        numberContainer.appendChild(buttonNum);
+        const button = document.createElement("button");
+        button.textContent = arr[i];
+        button.classList.add("calcButton");
+        buttonContainer.appendChild(button);
     }
 }
 
