@@ -163,11 +163,14 @@ function clear () {
 
 const bodyDiv = document.querySelector("body");
 const clearButton = document.createElement("button");
+const header = document.createElement("header");
 
-clearButton.classList.add("calcButton");
+header.textContent = "Forgot to include the clear button and the calc looks crisp. So it stays outside.";
+clearButton.classList.add("clearButton");
 clearButton.textContent = "AC";
 clearButton.addEventListener("click", () => {
     clear();
 });
 
 bodyDiv.appendChild(clearButton);
+bodyDiv.appendChild(header);
