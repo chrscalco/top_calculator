@@ -1,6 +1,5 @@
 //Arrays for calculator
-calcButtons = ["7", "8", "9", "÷", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
-
+const calcButtons = ["7", "8", "9", "÷", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
 
 //Functions to operate calculator
 
@@ -47,6 +46,13 @@ function createCalc(arr) {
         const button = document.createElement("button");
         button.textContent = arr[i];
         button.classList.add("calcButton");
+        if (arr[i] === "=") {
+            button.setAttribute("style", "background-color: #ED6E3E");
+        } else if (isNaN(arr[i]) && (arr[i] !== ".")) {
+            button.setAttribute("style", "background-color: #F8C743");
+        } else {
+            button.setAttribute("style", "background-color: #7895A8");
+        }
         buttonContainer.appendChild(button);
     }
 }
